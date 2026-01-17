@@ -1,8 +1,11 @@
 const express = require("express"); //express ko import krne k liye
 const app = express(); 
-const port = 8080; //server run k liye
+
 
 const path = require("path"); //path module ko import krne k liye
+const port = process.env.PORT || 8080;
+
+
 // const { use } = require("react");
 const{v4 : uuidv4} = require('uuid'); //unique id generate krne k liye
 const methodOverride = require('method-override'); //method override krne k liye
@@ -39,6 +42,10 @@ let post = [
         content: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     } 
 ];
+
+app.get("/", (req, res) => {
+  res.redirect("/posts");
+});
 
 //post local route
 app.get("/posts", (req, res) => {
@@ -113,6 +120,10 @@ app.delete("/posts/:id", (req, res) => {
 
 
 //home route
-app.listen(port, () => { 
-  console.log(`Server is running on http://localhost:${port}`);
+// app.listen(port, () => { 
+//   console.log(`Server is running on http://localhost:${port}`);
+// });
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
+
