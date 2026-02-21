@@ -20,7 +20,7 @@ A RESTful API built using Node.js and Express that performs basic CRUD (Create, 
 
 - Node.js
 - Express.js
-- MongoDB / File System / MySQL (mention what you used)
+- MongoDB / File System 
 - EJS / Postman (if used)
 
 ---
