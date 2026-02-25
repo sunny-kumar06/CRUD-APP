@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,5 +10,114 @@
     <h2>post id: <%= post.id %> </h2>
     <p><strong>Username:</strong> <%= post.username %></p>
     <p><strong>Content:</strong> <%= post.content %></p>
+</body>
+</html>
+ -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 20px;
+            width: 500px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .username {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffd369;
+        }
+
+        .content {
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        .actions {
+            margin-top: 25px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .edit {
+            background: #f9c74f;
+            color: black;
+        }
+
+        .back {
+            background: #4cc9f0;
+            color: white;
+        }
+
+        .delete {
+            background: #f94144;
+            color: white;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        form {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Post Details</h1>
+
+        <p><strong>Post ID:</strong> <%= post.id %></p>
+
+        <p class="username">@<%= post.username %></p>
+
+        <p class="content"><%= post.content %></p>
+
+        <div class="actions">
+            <a class="btn edit" href="/posts/<%= post.id %>/edit">Edit</a>
+            <a class="btn back" href="/posts">Back</a>
+
+            <form action="/posts/<%= post.id %>?_method=DELETE" method="POST">
+                <button class="btn delete">Delete</button>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>
